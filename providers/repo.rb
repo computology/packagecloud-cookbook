@@ -91,13 +91,9 @@ def install_rpm
 
   Chef::Log.debug("#{new_resource.name} rpm base url = #{base_url}")
 
-  package 'pygpgme' do
-    ignore_failure true
-  end
-
   log 'pygpgme_warning' do
-    message 'The pygpgme package could not be installed. This means GPG verification is not possible for any RPM installed on your system. ' \
-            'To fix this, add a repository with pygpgme. Usualy, the EPEL repository for your system will have this. ' \
+    message 'The pygpgme package is not installed. This means GPG verification is not possible for any RPM installed on your system. ' \
+            'To fix this, add a repository with pygpgme. Usually, the EPEL repository for your system will have this. ' \
             'More information: https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F and https://github.com/opscode-cookbooks/yum-epel'
 
     level :warn
